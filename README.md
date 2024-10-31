@@ -10,10 +10,28 @@ This project focuses on uncovering key trends in customer purchasing behavior, p
 
 The data for this project, **"Electronic_sales.csv"**, was sourced from **Kaggle**. This dataset contains comprehensive customer attributes, product, order and transaction details which provide the foundation for analyzing customer behavior, payment preferences, and satisfaction trends within the company.
 
-### Tool
-- Python: For data analysis and visualization. Key libraries used include:
-    - Pandas - For data manipulation and analysis.
+### Tools
+- Python: For data analysis and visualization. [Check it out](
+      Key libraries used include:
+    - Pandas - For data cleaning, manipulation and analysis.
     - Numpy -  For numerical operations and calculations.
     - Matplotlib - For creating static visualizations.
     - Seaborn - For enhanced visualizations and statistical graphics.
-- Google Slides -  For creating presentations to share findings with stakeholders.
+- Google Slides -  For creating presentations to share findings.
+
+### Development Environment:
+
+- Google Colab - For executing Python code and sharing notebooks collaboratively.
+
+### Data Cleaning and Preprocesses
+
+In this phase, the following task was performed:
+- Data Loading and Inspection
+- Handling Missing Values
+- Regularizing Inconsistent Naming Conventions
+- Converting date entries to a standard datetime format for uniform analysis
+- Data Cleaning and Formatting
+
+### Exploratory Data Analysis (EDA)
+
+
