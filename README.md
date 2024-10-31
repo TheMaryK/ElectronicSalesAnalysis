@@ -26,12 +26,16 @@ The data for this project, **"Electronic_sales.csv"**, was sourced from **Kaggle
 ### Data Cleaning and Preprocesses
 
 In this phase, the following task was performed:
-- Data Loading and Inspection
-- Handling Missing Values
-- Regularizing Inconsistent Naming Conventions
-- Converting date entries to a standard datetime format for uniform analysis
-- Data Cleaning and Formatting
+1. Data Loading and Inspection
+2. Handling Missing Values
+3. Regularizing Inconsistent Naming Conventions
+4. Converting date entries to a standard datetime format for uniform analysis
+5. Data Cleaning and Formatting
 
 ### Exploratory Data Analysis (EDA)
+Key business questions will be explored to uncover insights:
+1. How does the average annual revenue differ across various product types?
+2. 
+
 
 
