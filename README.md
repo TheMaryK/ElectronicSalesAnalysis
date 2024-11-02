@@ -8,7 +8,7 @@ This project focuses on uncovering key trends in customer purchasing behavior, p
 
 ### Data Source
 
-The data for this project, **"Electronic_sales.csv"**, was sourced from **Kaggle**[see it here](https://www.kaggle.com/datasets/cameronseamons/electronic-sales-sep2023-sep2024). 
+The data for this project, **"Electronic_sales.csv"**, was sourced from **Kaggle** [see it here](https://www.kaggle.com/datasets/cameronseamons/electronic-sales-sep2023-sep2024). 
 This dataset contains comprehensive customer attributes, product, order and transaction details.
 
 ### Tools
