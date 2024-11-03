@@ -19,24 +19,56 @@ This dataset contains comprehensive customer attributes, product, order and tran
     - Matplotlib - For creating static visualizations.
     - Seaborn - For enhanced visualizations and statistical graphics.
 - Google Slides -  For creating presentations to share findings.
-
-### Development Environment:
-
 - Google Colab - For executing Python code and sharing notebooks collaboratively.
+- GitHub - For hosting the project documentation and version control
 
 ### Data Cleaning and Preprocesses
 
 In this phase, the following task was performed:
 1. Data Loading and Inspection
-2. Handling Missing Values
-3. Regularizing Inconsistent Naming Conventions
-4. Converting date entries to a standard datetime format for uniform analysis
-5. Data Cleaning and Formatting
+2. Handling of  Missing Values
+3. Regularizing of Inconsistent Naming Conventions in the 'Payment Method' Column
+4. Create 'Age Group' column based on different life stages for better analysis
+5. Converting date entries to a standard datetime format for uniform analysis
+6. Data Cleaning and Formatting
 
 ### Exploratory Data Analysis (EDA)
 Key business questions will be explored to uncover insights:
-1. How does the average annual revenue differ across various product types?
-2. 
+1. Which product types generate the highest average annual revenue, and which have the lowest?
+2. What are the average customer ratings for each product type?, and how does this impact customer satisfaction?
+3. To what extent do loyalty members provide higher average ratings compared to non-members, and are these differences statistically significant??
+4. What percentage of customers use each available payment method? Are there any significant differences in payment method usage across customer age groups?
+
+###Data Analysis
+
+```python
+completed_orders = df[df['Order Status'] == 'Completed']
+average_price_by_product = completed_orders.groupby('Product Type')['Total Price'].mean()
+print(average_price_by_product)
+```
+
+```python
+average_rating_by_product_type = df.groupby('Product Type').Rating.mean()
+print(average_rating_by_product_type)
+```
+
+```python
+loyalty_member_ratings = df[df['Loyalty Member'] == 'Yes']['Rating']
+non_loyalty_member_ratings = df[df['Loyalty Member'] == 'No']['Rating']
+avg_loyalty_member_rating = loyalty_member_ratings.mean()
+avg_non_loyalty_member_rating = non_loyalty_member_ratings.mean()
+print("Average Rating for Loyalty Members:", avg_loyalty_member_rating)
+print("Average Rating for Non-Loyalty Members:", avg_non_loyalty_member_rating)
+
+t_stat, p_value = ttest_ind(loyalty_member_ratings, non_loyalty_member_ratings, equal_var=False)
+print("T-Statistic:", t_stat)
+print("P-Value:", p_value)
+if p_value < 0.05:
+    print("There is a statistically significant difference in average ratings between loyalty members and non-members.")
+else:
+    print("There is no statistically significant difference in average ratings between loyalty members and non-members.")
+```
+
 
 
 
