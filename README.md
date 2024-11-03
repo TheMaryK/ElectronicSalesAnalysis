@@ -1,17 +1,17 @@
-# Customer_Insights_and_Payment_Trends_Analysis_in_Electronic_Sales
+# Customer Insights and Payment Trends Analysis in Electronic Sales
 
 This project leverages electronic sales data from September 2023 to September 2024 to reveal **customer satisfaction trends**, **payment preferences**, and **product performance insights**, helping to **optimize customer experience** and **drive strategic business growth** of an electronic company.
 
-### Project Overview
+## Project Overview
 
 This project focuses on uncovering key trends in customer purchasing behavior, payment preferences, and satisfaction levels for an electronic company from September 2023 to September 2024. This analysis aims to provide data-driven insights to help enhance customer satisfaction, optimize marketing strategies, and inform business growth initiatives.
 
-### Data Source
+## Data Source
 
 The data for this project, **"Electronic_sales.csv"**, was sourced from **Kaggle** [see it here](https://www.kaggle.com/datasets/cameronseamons/electronic-sales-sep2023-sep2024). 
 This dataset contains comprehensive customer attributes, product, order and transaction details.
 
-### Tools
+## Tools
 - Python: For data analysis and visualization. [Check it out](
       Key libraries used include:
     - Pandas - For data cleaning, manipulation and analysis.
@@ -22,8 +22,7 @@ This dataset contains comprehensive customer attributes, product, order and tran
 - Google Colab - For executing Python code and sharing notebooks collaboratively.
 - GitHub - For hosting the project documentation and version control
 
-### Data Cleaning and Preprocesses
-
+## Data Cleaning and Preprocesses
 In this phase, the following task was performed:
 1. Data Loading and Inspection
 2. Handling of  Missing Values
@@ -32,25 +31,29 @@ In this phase, the following task was performed:
 5. Converting date entries to a standard datetime format for uniform analysis
 6. Data Cleaning and Formatting
 
-### Exploratory Data Analysis (EDA)
+## Exploratory Data Analysis (EDA)
 Key business questions will be explored to uncover insights:
 1. Which product types generate the highest average annual revenue, and which have the lowest?
 2. What are the average customer ratings for each product type?, and how does this impact customer satisfaction?
 3. To what extent do loyalty members provide higher average ratings compared to non-members, and are these differences statistically significant??
 4. What percentage of customers use each available payment method? Are there any significant differences in payment method usage across customer age groups?
+5. Are there specific months where customer rating are significantly higher or lower, and how does this correlate with order status?
 
-###Data Analysis
+## Data Analysis
+### Question 1
 
 ```python
 completed_orders = df[df['Order Status'] == 'Completed']
 average_price_by_product = completed_orders.groupby('Product Type')['Total Price'].mean()
 print(average_price_by_product)
 ```
+### Question 2
 
 ```python
 average_rating_by_product_type = df.groupby('Product Type').Rating.mean()
 print(average_rating_by_product_type)
 ```
+### Question 3
 
 ```python
 loyalty_member_ratings = df[df['Loyalty Member'] == 'Yes']['Rating']
@@ -68,7 +71,27 @@ if p_value < 0.05:
 else:
     print("There is no statistically significant difference in average ratings between loyalty members and non-members.")
 ```
+### Question 4
 
+```python
+# Step 1: Percentage of Customers Using Each Payment Method
+payment_method_counts = df['Payment Method'].value_counts()
+payment_method_percentages = (payment_method_counts / len(df)) * 100
 
+#Step 2: Analyze Payment Method Usage Across Age Groups
+print("Percentage of Customers by Payment Method:")
+print(payment_method_percentages)
+age_bins = [18, 25, 35, 45, 55, 65, 81]
+age_labels = ['18-24', '25-34', '35-44', '45-54', '55-64', '65+']
+df['Age Group'] = pd.cut(df['Age'], bins=age_bins, labels=age_labels, right=False)
+payment_method_by_age_group = df.groupby(['Age Group', 'Payment Method']).size().unstack().fillna(0)
+payment_method_by_age_group_percent = payment_method_by_age_group.div(payment_method_by_age_group.sum(axis=1), axis=0) * 100
+
+print("\nPayment Method Usage Across Age Groups (Percentage):")
+print(payment_method_by_age_group_percent)
+```
+### Question 5
+
+```python
 
 
