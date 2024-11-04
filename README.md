@@ -5,7 +5,7 @@
 - [Data Source](#data-source)
 - [Tools](#tools)
 - [Data Cleaning and Preprocesses](#data-cleaning-and-preprocesses)
-      - [Data Loading and Inspection](#data-loading-and-inspection)
+            - [Data Loading and Inspection](#data-loading-and-inspection)
       - [Handling of  Missing Values](#handling-of-missing-values)
       - [Regularizing of Inconsistent Naming Conventions in the 'Payment Method' Column](#regularizing-of-inconsistent-naming-conventions-in-the-'payment-method'-column)
 
