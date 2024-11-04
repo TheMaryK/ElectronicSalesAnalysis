@@ -25,11 +25,35 @@ This dataset contains comprehensive customer attributes, product, order and tran
 ## Data Cleaning and Preprocesses [check it out](https://colab.research.google.com/drive/1Rk3fFlJWbC0tKCgyFpSJwqOTqGoGVxXs?usp=sharing)
 In this phase, the following task was performed:
 1. Data Loading and Inspection
+   ```python
+   df = pd.read_csv('Electronic_sales.csv')
+   df
+   ```
 2. Handling of  Missing Values
+   ```python
+   #Step 1: Identify missing values.
+   df.isnull().sum()
+
+   # Step 2: Fill missing values
+   df['Add-ons Purchased'].fillna('None', inplace=True)
+   df['Gender'] = df['Gender'].fillna(df['Gender'].mode()[0])
+   ```
 3. Regularizing of Inconsistent Naming Conventions in the 'Payment Method' Column
+   ```python
+   df['Payment Method'] = df['Payment Method'].str.title()
+   ```
+   
 4. Create 'Age Group' column based on different life stages for better analysis
+   ```python
+   age_bins = [18, 25, 35, 45, 55, 65, 81]
+   age_labels = ['18-24', '25-34', '35-44', '45-54', '55-64', '65+']
+   df['Age Group'] = pd.cut(df['Age'], bins=age_bins, labels=age_labels, right=False)
+   ```
+   
 5. Converting date entries to a standard datetime format for uniform analysis
-6. Data Cleaning and Formatting
+   ```python
+   df['Purchase Date'] = pd.to_datetime(df['Purchase Date'])
+   ```
 
 ## Exploratory Data Analysis (EDA)
 Key business questions will be explored to uncover insights:
@@ -102,4 +126,11 @@ print(monthly_purchase_volume)
 print("\nMonthly Average Customer Satisfaction:")
 print(monthly_avg_satisfaction)
 ```
-
+## Findings
+1.
+|Product Type|Average Annual Revenue ($)|
+|Headphones|2009.295371|
+|Laptop|3114.633377|
+|Smartphone|3598.360599|
+|Smartwatch|3565.474670|
+|Tablet|2813.345082|
