@@ -35,9 +35,9 @@ In this phase, the following task was performed:
 Key business questions will be explored to uncover insights:
 1. Which product types generate the highest average annual revenue, and which have the lowest?
 2. What are the average customer ratings for each product type?, and how does this impact customer satisfaction?
-3. To what extent do loyalty members provide higher average ratings compared to non-members, and are these differences statistically significant??
+3. To what extent do loyalty members provide higher average ratings compared to non-members, and are these differences statistically significant?
 4. What percentage of customers use each available payment method? Are there any significant differences in payment method usage across customer age groups?
-5. Are there specific months where customer rating are significantly higher or lower, and how does this correlate with order status?
+5. What are the peak purchasing months, and do they align with customer satisfaction levels?
 
 ## Data Analysis
 ### Question 1
@@ -74,11 +74,9 @@ else:
 ### Question 4
 
 ```python
-# Step 1: Percentage of Customers Using Each Payment Method
 payment_method_counts = df['Payment Method'].value_counts()
 payment_method_percentages = (payment_method_counts / len(df)) * 100
 
-#Step 2: Analyze Payment Method Usage Across Age Groups
 print("Percentage of Customers by Payment Method:")
 print(payment_method_percentages)
 age_bins = [18, 25, 35, 45, 55, 65, 81]
@@ -93,5 +91,15 @@ print(payment_method_by_age_group_percent)
 ### Question 5
 
 ```python
+completed_orders = df[df['Order Status'] == 'Completed']
 
+monthly_purchase_volume = completed_orders.groupby('Month').size()
+monthly_avg_satisfaction = completed_orders.groupby('Month')['Rating'].mean()
+
+print("Monthly Purchase Volume (Completed Orders):")
+print(monthly_purchase_volume)
+
+print("\nMonthly Average Customer Satisfaction:")
+print(monthly_avg_satisfaction)
+```
 
