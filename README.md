@@ -129,8 +129,14 @@ print(monthly_avg_satisfaction)
 ## Findings
 1.
 |Product Type|Average Annual Revenue ($)|
-|Headphones|2009.295371|
+---
+|Headphones|2009.295371
+---
 |Laptop|3114.633377|
+---
 |Smartphone|3598.360599|
+---
 |Smartwatch|3565.474670|
+---
 |Tablet|2813.345082|
+---
