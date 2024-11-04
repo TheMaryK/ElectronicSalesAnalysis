@@ -12,7 +12,7 @@ The data for this project, **"Electronic_sales.csv"**, was sourced from **Kaggle
 This dataset contains comprehensive customer attributes, product, order and transaction details.
 
 ## Tools
-- Python: For data analysis and visualization. [Check it out](
+- Python: For data analysis and visualization.
       Key libraries used include:
     - Pandas - For data cleaning, manipulation and analysis.
     - Numpy -  For numerical operations and calculations.
@@ -22,7 +22,7 @@ This dataset contains comprehensive customer attributes, product, order and tran
 - Google Colab - For executing Python code and sharing notebooks collaboratively.
 - GitHub - For hosting the project documentation and version control
 
-## Data Cleaning and Preprocesses
+## Data Cleaning and Preprocesses [check it out](https://colab.research.google.com/drive/1Rk3fFlJWbC0tKCgyFpSJwqOTqGoGVxXs?usp=sharing)
 In this phase, the following task was performed:
 1. Data Loading and Inspection
 2. Handling of  Missing Values
