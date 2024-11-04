@@ -1,10 +1,18 @@
 # Customer Insights and Payment Trends Analysis in Electronic Sales
 
-This project leverages electronic sales data from September 2023 to September 2024 to reveal **customer satisfaction trends**, **payment preferences**, and **product performance insights**, helping to **optimize customer experience** and **drive strategic business growth** of an electronic company.
+##Table of Content
+- [Project Overview](#project-overview)
+- [Data Source](#data-source)
+- [Tools](#tools)
+- [Data Cleaning and Preprocesses](#data-cleaning-and-preprocesses)
+      - [Data Loading and Inspection](#data-loading-and-inspection)
+      - [Handling of  Missing Values](#handling-of-missing-values)
+      - [Regularizing of Inconsistent Naming Conventions in the 'Payment Method' Column](#regularizing-of-inconsistent-naming-conventions-in-the-'payment-method'-column)
 
 ## Project Overview
 
 This project focuses on uncovering key trends in customer purchasing behavior, payment preferences, and satisfaction levels for an electronic company from September 2023 to September 2024. This analysis aims to provide data-driven insights to help enhance customer satisfaction, optimize marketing strategies, and inform business growth initiatives.
+This project leverages electronic sales data from September 2023 to September 2024 to reveal **customer satisfaction trends**, **payment preferences**, and **product performance insights**, helping to **optimize customer experience** and **drive strategic business growth** of an electronic company.
 
 ## Data Source
 
