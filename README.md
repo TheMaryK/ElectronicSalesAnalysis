@@ -69,9 +69,10 @@ In this phase, the following task was performed: [check it out](https://colab.re
 ## Exploratory Data Analysis
 Key business questions will be explored to uncover insights:
 1. Which product types generate the highest average annual revenue, and which have the lowest?
-2. What are the average customer ratings for each product type?, and how does this impact customer satisfaction?
-3. To what extent do loyalty members provide higher average ratings compared to non-members, and are these differences statistically significant?
-4. What percentage of customers use each available payment method? Are there any significant differences in payment method usage across customer age groups?
+2. What are the average customer ratings for each product type?
+3. To what extent do loyalty members provide higher average ratings compared to non-members?
+4a. What percentage of customers use each available payment method?
+4b. Are there any significant differences in payment method usage across customer age groups?
 5. What are the peak purchasing months, and do they align with customer satisfaction levels?
 
 ## Data Analysis
@@ -79,13 +80,15 @@ Key business questions will be explored to uncover insights:
 
 ```python
 completed_orders = df[df['Order Status'] == 'Completed']
-average_price_by_product = completed_orders.groupby('Product Type')['Total Price'].mean()
+average_price_by_product = completed_orders.groupby('Product Type')['Total Price'].mean().round(2)
+average_price_by_product = average_price_by_product.sort_values(ascending=False)
 print(average_price_by_product)
 ```
 ### Question 2
 
 ```python
-average_rating_by_product_type = df.groupby('Product Type').Rating.mean()
+average_rating_by_product_type = df.groupby('Product Type').Rating.mean().round(2)
+average_rating_by_product_type = average_rating_by_product_type.sort_values(ascending=False)
 print(average_rating_by_product_type)
 ```
 ### Question 3
@@ -93,18 +96,10 @@ print(average_rating_by_product_type)
 ```python
 loyalty_member_ratings = df[df['Loyalty Member'] == 'Yes']['Rating']
 non_loyalty_member_ratings = df[df['Loyalty Member'] == 'No']['Rating']
-avg_loyalty_member_rating = loyalty_member_ratings.mean()
-avg_non_loyalty_member_rating = non_loyalty_member_ratings.mean()
+avg_loyalty_member_rating = round(loyalty_member_ratings.mean(), 2)
+avg_non_loyalty_member_rating = round(non_loyalty_member_ratings.mean(), 2)
 print("Average Rating for Loyalty Members:", avg_loyalty_member_rating)
 print("Average Rating for Non-Loyalty Members:", avg_non_loyalty_member_rating)
-
-t_stat, p_value = ttest_ind(loyalty_member_ratings, non_loyalty_member_ratings, equal_var=False)
-print("T-Statistic:", t_stat)
-print("P-Value:", p_value)
-if p_value < 0.05:
-    print("There is a statistically significant difference in average ratings between loyalty members and non-members.")
-else:
-    print("There is no statistically significant difference in average ratings between loyalty members and non-members.")
 ```
 ### Question 4
 
@@ -138,11 +133,42 @@ print("\nMonthly Average Customer Satisfaction:")
 print(monthly_avg_satisfaction)
 ```
 ## Findings
-1.
+1. 1. Which product types generate the highest average annual revenue, and which have the lowest?
 |Product Type|Average Annual Revenue($)|
 |------------|-------------------------|
-|Headphones|2009.30|
-|Laptop|3114.63|
 |Smartphone|3598.36|
 |Smartwatch|3565.47|
+|Laptop|3114.63|
 |Tablet|2813.35|
+|Headphones|2009.30|
+
+2. What are the average customer ratings for each product type?
+|Product Type|Average Rating|
+|------------|-------------------------|
+|Smartphone|3.32|
+|Tablet|3.02|
+||Headphones|2.99|
+|Smartwatch|2.99|
+|Laptop|2.98|
+
+3. To what extent do loyalty members provide higher average ratings compared to non-members?
+|Average Rating for Loyalty Members|3.1|
+|------------|-------------------------|
+|Average Rating for Non-Loyalty Members|3.09|
+
+4a. What percentage of customers use each available payment method?
+|Payment Method|Percentage of customers|
+|--------------|-----------------------|
+|Credit Card|29.340|
+|Paypal|28.990|
+|Bank Transfer|16.855|
+|Cash|12.460|
+|Debit Card|12.355|
+
+4b. Are there any significant differences in payment method usage across customer age groups?
+From the analysis, credit cards and PayPal are the most widely used payment methods across all age groups while cash usage is consistently lower across all age groups. Overall, the data shows a clear shift toward digital payments, with subtle differences in preferences across age groups.
+
+5. What are the peak purchasing months, and do they align with customer satisfaction levels?
+January and May have the highest number of purchases, reaching the lowest counts in October, November, and December. Interestingly, the peak purchasing months (January–August) coincide with relatively stable but lower customer satisfaction scores while during the months with the lowest purchase volumes (October–December), customer satisfaction ratings are at their highest.
+
+
