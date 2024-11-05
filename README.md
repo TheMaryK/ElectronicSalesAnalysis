@@ -131,6 +131,7 @@ print(monthly_avg_satisfaction)
 ```
 ## Findings
 1. Which product types generate the highest average annual revenue, and which have the lowest?
+   
 |Rank|Product Type|Average Annual Revenue($)|
 |----|------------|-------------------------|
 |1|Smartphone|3598.36|
