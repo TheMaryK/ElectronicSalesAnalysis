@@ -1,6 +1,6 @@
 # Customer Insights and Payment Trends Analysis in Electronic Sales
 
-##Table of Content
+## Table of Content
 - [Project Overview](#project-overview)
 - [Data Source](#data-source)
 - [Tools](#tools)
