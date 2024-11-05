@@ -163,10 +163,10 @@ print(monthly_avg_satisfaction)
 |4|Cash|12.460%|
 |5|Debit Card|12.355%|
 
-b. Are there any significant differences in payment method usage across customer age groups?
+5. Are there any significant differences in payment method usage across customer age groups?
 From the analysis, credit cards and PayPal are the most widely used payment methods across all age groups while cash usage is consistently lower across all age groups. Overall, the data shows a clear shift toward digital payments, with subtle differences in preferences across age groups.
 
-5. What are the peak purchasing months, and do they align with customer satisfaction levels?
+6. What are the peak purchasing months, and do they align with customer satisfaction levels?
 January and May have the highest number of purchases, reaching the lowest counts in October, November, and December. Interestingly, the peak purchasing months (January–August) coincide with relatively stable but lower customer satisfaction scores while during the months with the lowest purchase volumes (October–December), customer satisfaction ratings are at their highest.
 
 
