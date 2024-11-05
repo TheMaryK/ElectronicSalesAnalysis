@@ -144,7 +144,7 @@ print(monthly_avg_satisfaction)
 
 2. What are the average customer ratings for each product type?
 |Product Type|Average Rating|
-|------------|-------------------------|
+|------------|--------------|
 |Smartphone|3.32|
 |Tablet|3.02|
 ||Headphones|2.99|
@@ -153,7 +153,7 @@ print(monthly_avg_satisfaction)
 
 3. To what extent do loyalty members provide higher average ratings compared to non-members?
 |Average Rating for Loyalty Members|3.1|
-|------------|-------------------------|
+|----------------------------------|---|
 |Average Rating for Non-Loyalty Members|3.09|
 
 4a. What percentage of customers use each available payment method?
