@@ -71,8 +71,8 @@ Key business questions will be explored to uncover insights:
 1. Which product types generate the highest average annual revenue, and which have the lowest?
 2. What are the average customer ratings for each product type?
 3. To what extent do loyalty members provide higher average ratings compared to non-members?
-4a. What percentage of customers use each available payment method?
-4b. Are there any significant differences in payment method usage across customer age groups?
+4. What percentage of customers use each available payment method?
+    Are there any significant differences in payment method usage across customer age groups?
 5. What are the peak purchasing months, and do they align with customer satisfaction levels?
 
 ## Data Analysis
