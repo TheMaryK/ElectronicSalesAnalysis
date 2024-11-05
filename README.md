@@ -131,36 +131,37 @@ print(monthly_avg_satisfaction)
 ```
 ## Findings
 1. 1. Which product types generate the highest average annual revenue, and which have the lowest?
-|Product Type|Average Annual Revenue($)|
-|------------|-------------------------|
-|Smartphone|3598.36|
-|Smartwatch|3565.47|
-|Laptop|3114.63|
-|Tablet|2813.35|
-|Headphones|2009.30| 
+|Rank|Product Type|Average Annual Revenue($)|
+|----|------------|-------------------------|
+|1|Smartphone|3598.36|
+|2|Smartwatch|3565.47|
+|3|Laptop|3114.63|
+|4|Tablet|2813.35|
+|5|Headphones|2009.30| 
 
 2. What are the average customer ratings for each product type?
-|Product Type|Average Rating|
-|------------|--------------|
-|Smartphone|3.32|
-|Tablet|3.02|
-||Headphones|2.99|
-|Smartwatch|2.99|
-|Laptop|2.98| 
+|Rank|Product Type|Average Rating|
+|----|------------|--------------|
+|1|Smartphone|3.32|
+|2|Tablet|3.02|
+|3||Headphones|2.99|
+|4|Smartwatch|2.99|
+|5|Laptop|2.98| 
 
 3. To what extent do loyalty members provide higher average ratings compared to non-members?
-|Average Rating for Loyalty Members|3.1|
-|----------------------------------|---|
-|Average Rating for Non-Loyalty Members|3.09| 
+|Rank|Loyalty Membership|Average Rating|
+|----|------------------|--------------|
+|1|Loyalty Members|3.1|
+|2|Non-Loyalty Members|3.09| 
 
 4a. What percentage of customers use each available payment method?
-|Payment Method|Percentage of customers|
-|--------------|-----------------------|
-|Credit Card|29.340%|
-|Paypal|28.990%|
-|Bank Transfer|16.855%|
-|Cash|12.460%|
-|Debit Card|12.355%|
+|Rank|Payment Method|Percentage of customers|
+|----|--------------|-----------------------|
+|1|Credit Card|29.340%|
+|2|Paypal|28.990%|
+|3|Bank Transfer|16.855%|
+|4|Cash|12.460%|
+|5|Debit Card|12.355%|
 
 4b. Are there any significant differences in payment method usage across customer age groups?
 From the analysis, credit cards and PayPal are the most widely used payment methods across all age groups while cash usage is consistently lower across all age groups. Overall, the data shows a clear shift toward digital payments, with subtle differences in preferences across age groups.
