@@ -5,8 +5,12 @@
 - [Data Source](#data-source)
 - [Tools](#tools)
 - [Data Cleaning and Preprocesses](#data-cleaning-and-preprocesses)
-- [Exploratory Data Analysis (EDA)](#exploratory-data-analysis-(EDA))
-- 
+- [Exploratory Data Analysis](#exploratory-data-analysis)
+- [Data Analysis](#data-analysis)
+- [Findings](#findings)
+- [Recommendations](#recommendations)
+- [Limitations](#limitations)
+- [References](#references)
 
 ## Project Overview
 
@@ -62,7 +66,7 @@ In this phase, the following task was performed: [check it out](https://colab.re
    df['Purchase Date'] = pd.to_datetime(df['Purchase Date'])
    ```
 
-## Exploratory Data Analysis (EDA)
+## Exploratory Data Analysis
 Key business questions will be explored to uncover insights:
 1. Which product types generate the highest average annual revenue, and which have the lowest?
 2. What are the average customer ratings for each product type?, and how does this impact customer satisfaction?
@@ -135,15 +139,10 @@ print(monthly_avg_satisfaction)
 ```
 ## Findings
 1.
-|Product Type|Average Annual Revenue ($)|
----
-|Headphones|2009.295371
----
-|Laptop|3114.633377|
----
-|Smartphone|3598.360599|
----
-|Smartwatch|3565.474670|
----
-|Tablet|2813.345082|
----
+|Product Type|Average Annual Revenue($)|
+|------------|-------------------------|
+|Headphones|2009.30|
+|Laptop|3114.63|
+|Smartphone|3598.36|
+|Smartwatch|3565.47|
+|Tablet|2813.35|
