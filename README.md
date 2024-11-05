@@ -130,7 +130,7 @@ print("\nMonthly Average Customer Satisfaction:")
 print(monthly_avg_satisfaction)
 ```
 ## Findings
-1. 1. Which product types generate the highest average annual revenue, and which have the lowest?
+1. Which product types generate the highest average annual revenue, and which have the lowest?
 |Rank|Product Type|Average Annual Revenue($)|
 |----|------------|-------------------------|
 |1|Smartphone|3598.36|
@@ -154,7 +154,7 @@ print(monthly_avg_satisfaction)
 |1|Loyalty Members|3.1|
 |2|Non-Loyalty Members|3.09| 
 
-4a. What percentage of customers use each available payment method?
+4. What percentage of customers use each available payment method?
 |Rank|Payment Method|Percentage of customers|
 |----|--------------|-----------------------|
 |1|Credit Card|29.340%|
@@ -163,7 +163,7 @@ print(monthly_avg_satisfaction)
 |4|Cash|12.460%|
 |5|Debit Card|12.355%|
 
-4b. Are there any significant differences in payment method usage across customer age groups?
+b. Are there any significant differences in payment method usage across customer age groups?
 From the analysis, credit cards and PayPal are the most widely used payment methods across all age groups while cash usage is consistently lower across all age groups. Overall, the data shows a clear shift toward digital payments, with subtle differences in preferences across age groups.
 
 5. What are the peak purchasing months, and do they align with customer satisfaction levels?
