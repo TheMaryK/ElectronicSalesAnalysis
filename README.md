@@ -137,7 +137,7 @@ print(monthly_avg_satisfaction)
 |Smartwatch|3565.47|
 |Laptop|3114.63|
 |Tablet|2813.35|
-|Headphones|2009.30|
+|Headphones|2009.30| 
 
 2. What are the average customer ratings for each product type?
 |Product Type|Average Rating|
@@ -146,21 +146,21 @@ print(monthly_avg_satisfaction)
 |Tablet|3.02|
 ||Headphones|2.99|
 |Smartwatch|2.99|
-|Laptop|2.98|
+|Laptop|2.98| 
 
 3. To what extent do loyalty members provide higher average ratings compared to non-members?
 |Average Rating for Loyalty Members|3.1|
 |----------------------------------|---|
-|Average Rating for Non-Loyalty Members|3.09|
+|Average Rating for Non-Loyalty Members|3.09| 
 
 4a. What percentage of customers use each available payment method?
 |Payment Method|Percentage of customers|
 |--------------|-----------------------|
-|Credit Card|29.340|
-|Paypal|28.990|
-|Bank Transfer|16.855|
-|Cash|12.460|
-|Debit Card|12.355|
+|Credit Card|29.340%|
+|Paypal|28.990%|
+|Bank Transfer|16.855%|
+|Cash|12.460%|
+|Debit Card|12.355%|
 
 4b. Are there any significant differences in payment method usage across customer age groups?
 From the analysis, credit cards and PayPal are the most widely used payment methods across all age groups while cash usage is consistently lower across all age groups. Overall, the data shows a clear shift toward digital payments, with subtle differences in preferences across age groups.
