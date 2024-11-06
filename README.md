@@ -207,10 +207,10 @@ print(adds_on_purchased_counts)
    
 |Rank|Loyalty Membership|Average Rating|
 |----|------------------|--------------|
-|1|Loyalty Members|3.1|
+|1|Loyalty Members|3.10|
 |2|Non-Loyalty Members|3.09| 
 
-4. What percentage of customers use each available payment method?
+4a. What percentage of customers use each available payment method?
    
 |Rank|Payment Method|Percentage of customers|
 |----|--------------|-----------------------|
@@ -220,10 +220,12 @@ print(adds_on_purchased_counts)
 |4|Cash|12.460%|
 |5|Debit Card|12.355%|
 
-Are there any significant differences in payment method usage across customer age groups?
+4b. Are there any significant differences in payment method usage across customer age groups?
+
 From the analysis, credit cards and PayPal are the most widely used payment methods across all age groups while cash usage is consistently lower across all age groups. Overall, the data shows a clear shift toward digital payments, with subtle differences in preferences across age groups.
 
 5. What are the peak purchasing months, and do they align with customer satisfaction levels?
+   
 January and May have the highest number of purchases, reaching the lowest counts in October, November, and December. 
 
 6. How does shipping type affect customer satisfaction (inferred from completed and cancelled orders)?
