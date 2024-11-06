@@ -1,4 +1,4 @@
-# Customer Insights and Payment Trends Analysis in Electronic Sales
+# Customer Purchase behaviour Analysis in Electronic Sales
 
 ## Table of Content
 - [Project Overview](#project-overview)
@@ -65,21 +65,37 @@ In this phase, the following task was performed: [check it out](https://colab.re
 
 ## Exploratory Data Analysis
 Key business questions will be explored to uncover insights:
-1. Which product types generate the highest average annual revenue, and which have the lowest?
+1. Which product types are the top performers in terms of revenue and units sold?
 2. What are the average customer ratings for each product type?
 3. To what extent do loyalty members provide higher average ratings compared to non-members?
 4. What percentage of customers use each available payment method?
     Are there any significant differences in payment method usage across customer age groups?
 5. What are the peak purchasing months, and do they align with customer satisfaction levels?
+6. How does shipping type affect customer satisfaction (inferred from completed and cancelled orders)?
 
 ## Data Analysis
 ### Question 1
 
 ```python
+#Step 1: Filter completed orders to focus on actual purchases
 completed_orders = df[df['Order Status'] == 'Completed']
-average_price_by_product = completed_orders.groupby('Product Type')['Total Price'].mean().round(2)
-average_price_by_product = average_price_by_product.sort_values(ascending=False)
-print(average_price_by_product)
+
+#Step 2: Calculate total revenue and units sold for each product type
+revenue_by_product = completed_orders.groupby('Product Type')['Total Price'].sum()
+units_sold_by_product = completed_orders.groupby('Product Type')['Quantity'].sum()
+
+#Step 3: Combine both metrics into a single DataFrame for easy comparison
+product_performance = pd.DataFrame({
+    'Total Revenue': revenue_by_product,
+    'Units Sold': units_sold_by_product
+})
+
+#Step 4: Sort by Total Revenue and Units Sold in descending order to identify top performers
+product_performance_sorted = product_performance.sort_values(by=['Total Revenue', 'Units Sold'], ascending=False)
+
+#Step 5: Display the top performers
+print(product_performance_sorted)
+
 ```
 ### Question 2
 
@@ -130,15 +146,15 @@ print("\nMonthly Average Customer Satisfaction:")
 print(monthly_avg_satisfaction)
 ```
 ## Findings
-1. Which product types generate the highest average annual revenue, and which have the lowest?
+1. Which product types are the top performers in terms of revenue and units sold?
    
-|Rank|Product Type|Average Annual Revenue($)|
-|----|------------|-------------------------|
-|1|Smartphone|3598.36|
-|2|Smartwatch|3565.47|
-|3|Laptop|3114.63|
-|4|Tablet|2813.35|
-|5|Headphones|2009.30| 
+|Rank|Product Type|Total Revenue($)|Units Sold| 
+|----|------------|----------------|----------|
+|1|Smartphone|14407835.84|21947|
+|2|Smartwatch|9398591.23|14474|
+|3|Laptop|8365905.25|14623|
+|4|Tablet|7722632.25|15041
+|5|Headphone|2734651.00|7565|             
 
 2. What are the average customer ratings for each product type?
    
@@ -146,7 +162,7 @@ print(monthly_avg_satisfaction)
 |----|------------|--------------|
 |1|Smartphone|3.32|
 |2|Tablet|3.02|
-|3||Headphones|2.99|
+|3|Headphone|2.99|
 |4|Smartwatch|2.99|
 |5|Laptop|2.98| 
 
@@ -172,5 +188,23 @@ From the analysis, credit cards and PayPal are the most widely used payment meth
 
 5. What are the peak purchasing months, and do they align with customer satisfaction levels?
 January and May have the highest number of purchases, reaching the lowest counts in October, November, and December. Interestingly, the peak purchasing months (January–August) coincide with relatively stable but lower customer satisfaction scores while during the months with the lowest purchase volumes (October–December), customer satisfaction ratings are at their highest.
+
+6. How does shipping type affect customer satisfaction (inferred from completed and cancelled orders)?
+
+|Rank|Shipping Type|Completed order%|                 
+|----|-------------|----------------|
+|1|Overnight|66.93|    
+|2|Standard|67.82|   
+|3|Same Day|66.67|   
+|4|Expedited|67.54|    
+|5|Express|66.16|   
+
+|Rank|Shipping Type|Cancelled order%|
+|----|-------------|----------------|
+|1|Express|33.83|
+|1|Expedited|32.45|    
+|2|Same Day|33.32|   
+|3|Standard|32.18|   
+|4|Overnight|33.07|
 
 
