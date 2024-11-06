@@ -1,4 +1,6 @@
-# Customer Purchase behaviour Analysis in Electronic Sales
+# Consumer Purchase Behaviour and Purchase Drivers Analysis in Electronic Sales
+
+![electonic analysis word cloud](https://github.com/user-attachments/assets/1430557e-fe7f-4346-92d0-8fab1a9de33b)
 
 ## Table of Content
 - [Project Overview](#project-overview)
@@ -8,10 +10,11 @@
 - [Exploratory Data Analysis](#exploratory-data-analysis)
 - [Data Analysis](#data-analysis)
 - [Findings](#findings)
+- [Insights](#insights)
+- [Recommendations](#recommendations)
 
 ## Project Overview
 
-This project focuses on uncovering key trends in customer purchasing behavior, payment preferences, and satisfaction levels for an electronic company from September 2023 to September 2024. This analysis aims to provide data-driven insights to help enhance customer satisfaction, optimize marketing strategies, and inform business growth initiatives.
 This project leverages electronic sales data from September 2023 to September 2024 to reveal **customer satisfaction trends**, **payment preferences**, and **product performance insights**, helping to **optimize customer experience** and **drive strategic business growth** of an electronic company.
 
 ## Data Source
@@ -72,6 +75,7 @@ Key business questions will be explored to uncover insights:
     Are there any significant differences in payment method usage across customer age groups?
 5. What are the peak purchasing months, and do they align with customer satisfaction levels?
 6. How does shipping type affect customer satisfaction (inferred from completed and cancelled orders)?
+7. Which add-ons are most frequently purchased?
 
 ## Data Analysis
 ### Question 1
@@ -145,6 +149,39 @@ print(monthly_purchase_volume)
 print("\nMonthly Average Customer Satisfaction:")
 print(monthly_avg_satisfaction)
 ```
+### Question 6
+
+```python
+# Group by 'Shipping Type' and 'Order Status' to get counts for each status per shipping type
+order_status_by_shipping = df.groupby(['Shipping Type', 'Order Status']).size().unstack(fill_value=0)
+
+# Calculate the total orders for each shipping type
+order_status_by_shipping['Total Orders'] = order_status_by_shipping.sum(axis=1)
+
+# Calculate the percentage of completed and cancelled orders for each shipping type
+order_status_by_shipping['Completed %'] = (order_status_by_shipping.get('Completed', 0) / order_status_by_shipping['Total Orders']) * 100
+order_status_by_shipping['Cancelled %'] = (order_status_by_shipping.get('Cancelled', 0) / order_status_by_shipping['Total Orders']) * 100
+
+# Sort by Completed % in descending order and display the table
+order_status_by_shipping = order_status_by_shipping[['Completed %', 'Cancelled %']].sort_values(by='Completed %', ascending=False)
+
+# Round the results to two decimal places
+order_status_by_shipping = order_status_by_shipping.round(2)
+
+
+print("Order Completion and Cancellation Rates by Shipping Type:")
+print(order_status_by_shipping)
+```
+### Question 7
+
+```python
+adds_on_purchased_counts = df['Add-ons Purchased'].value_counts()
+
+# Display the most frequently purchased add-ons
+print("Most Frequently Purchased Add-ons:")
+print(adds_on_purchased_counts)
+```
+
 ## Findings
 1. Which product types are the top performers in terms of revenue and units sold?
    
@@ -187,7 +224,7 @@ Are there any significant differences in payment method usage across customer ag
 From the analysis, credit cards and PayPal are the most widely used payment methods across all age groups while cash usage is consistently lower across all age groups. Overall, the data shows a clear shift toward digital payments, with subtle differences in preferences across age groups.
 
 5. What are the peak purchasing months, and do they align with customer satisfaction levels?
-January and May have the highest number of purchases, reaching the lowest counts in October, November, and December. Interestingly, the peak purchasing months (January–August) coincide with relatively stable but lower customer satisfaction scores while during the months with the lowest purchase volumes (October–December), customer satisfaction ratings are at their highest.
+January and May have the highest number of purchases, reaching the lowest counts in October, November, and December. 
 
 6. How does shipping type affect customer satisfaction (inferred from completed and cancelled orders)?
 
@@ -207,4 +244,29 @@ January and May have the highest number of purchases, reaching the lowest counts
 |3|Standard|32.18|   
 |4|Overnight|33.07|
 
+7. Which add-ons are most frequently purchased?
+The most frequently purchased  invidual Add-ons are Extended Warranty, Accessory and Impulse Item, while Extended Warranty + Impulse Item and Accessory + Impulse Item are the most common combinations                                      
 
+## Insights
+The following insights are gotten from the findings:
+- Smartphones and smartwatches are the top revenue drivers, with strong sales and higher unit prices, while headphones have lower revenue per unit due to their lower price point. Laptops outpace tablets in total revenue despite having slightly lower unit prices.
+  
+- While most electronic products tend to hover around a 3-star average rating, smartphones stand out by consistently receiving higher ratings, suggesting they're a strong point in the market with greater customer satisfaction.
+
+- Given the minimal difference in average ratings, the data suggests that loyalty membership does not significantly impact customer ratings.
+
+-  Credit cards and PayPal is the most prefered payment method across age groups, while cash and Debit card has lower usage. This indicate that there is preference for digital payment methods, likely driven by convenience, ease, and perceived security.
+
+-  Interestingly, the peak purchasing months (January–August) coincide with relatively stable but lower customer satisfaction scores while during the months with the lowest purchase volumes (October–December), customer satisfaction ratings are at their highest. This suggests that while fewer purchases occur later in the year, those who do purchase report higher satisfaction, possibly due to less demand on service or seasonal factors enhancing customer experience.
+
+-  Shipping speed does not appear to significantly affect the overall cancellation rate, with a slight preference for standard shipping in terms of completed orders. The consistent cancellation rate across all shipping types suggests that cancellations may be influenced by factors such as customer preferences or product availability which is beyond just the shipping method.
+
+-  Extended Warranty, Accessory, and Impulse Item are the most frequently purchased individual add-ons. This suggests that customers tend to purchase these add-ons separately rather than in combination.
+Extended Warranty + Impulse Item and Accessory + Impulse Item are the most common combinations. This suggests that customers who buy impulse items are also likely to purchase either an extended warranty or an accessory.
+Impulse items are often bought alongside extended warranties and accessories, suggesting that customers value both added protection and customization for their purchases.
+
+## Recommendations
+- To optimize revenue and enhance customer satisfaction, the following general recommendations are provided based on these findings.
+1. The low purchase volume in the last quarter, despite higher satisfaction, could indicate an opportunity to boost marketing efforts during these months to convert the high satisfaction levels into increased sales, while customer satisfaction should be enhanced during the peak purchasing months.
+2. Promotion of smartphones and smartwatches should be priortized to maximize revenue, bundle accessories like headphones with higher-priced items, and explore strategies to boost tablet and laptop sales through premium offerings or targeted marketing.
+3. Since the cancellation rate is quite high across all shipping types, investigating reasons behind cancellations (e.g., unexpected delays, pricing, or customer experience issues) could help reduce this percentage.
